@@ -243,6 +243,46 @@
       #sva-link a:hover {
         text-decoration: underline;
       }
+
+      /* Game Instructions */
+      #instructions {
+        position: absolute;
+        left: 0px;
+        top: 50%;
+        transform: translateY(-50%);
+        color: #d9bbf3;
+        font-size: 0.85em;
+        text-align: left;
+        line-height: 1.8;
+        max-width: 280px;
+        text-shadow: 0 0 black, 0 2px black, 2px 0 black, 0 0 black;
+        z-index: 1001;
+        background: rgba(0, 0, 0, 0.5);
+        padding: 20px;
+        border-radius: 10px;
+        border: 2px solid rgba(255, 255, 255, 0.2);
+      }
+      #instructions h2 {
+        font-size: 1.5em;
+        margin-bottom: 15px;
+        color: #25d8b1;
+      }
+      #instructions ul {
+        list-style: none;
+        padding: 0;
+        margin: 10px 0;
+      }
+      #instructions li {
+        margin: 8px 0;
+      }
+      #instructions .key {
+        background: rgba(255, 255, 255, 0.2);
+        padding: 3px 8px;
+        border-radius: 4px;
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        display: inline-block;
+        min-width: 30px;
+      }
     </style>
 
     <script>
@@ -274,6 +314,22 @@
       <div id="home">
         <h1>Dash</h1>
         <p id="text"></p>
+
+        <div id="instructions">
+          <h2>HOW TO PLAY</h2>
+          <ul>
+            <li><span class="key">C</span> - Insert Coin (Start Game)</li>
+            <li><span class="key">↑</span> - Accelerate</li>
+            <li><span class="key">↓</span> - Brake</li>
+            <li><span class="key">←</span> <span class="key">→</span> - Move Left/Right</li>
+            <li><span class="key">M</span> - Mute/Unmute Sound</li>
+            <li><span class="key">ESC</span> - Reset Game</li>
+          </ul>
+          <p style="margin-top: 15px; font-size: 0.85em;">
+            <strong>Objective:</strong> Reach the finish line before time runs out!<br>
+            Avoid enemy cars and stay on the road to maximize your score.
+          </p>
+        </div>
 
         <div id="highscore"></div>
       </div>
