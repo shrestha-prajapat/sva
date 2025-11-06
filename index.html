@@ -590,9 +590,9 @@
 
       const highscores = [];
 
-      const width = 800;
-      const halfWidth = width / 2;
-      const height = 500;
+      let width = window.innerWidth;
+      let height = window.innerHeight;
+      let halfWidth = width / 2;
       const roadW = 4000;
       const segL = 200;
       const camD = 0.2;
@@ -1009,12 +1009,20 @@
         }
       }
 
-      function init() {
+      function updateSize() {
+        width = window.innerWidth;
+        height = window.innerHeight;
+        halfWidth = width / 2;
+
         game.style.width = width + "px";
         game.style.height = height + "px";
 
         hero.style.top = height - 80 + "px";
         hero.style.left = halfWidth - ASSETS.IMAGE.HERO.width / 2 + "px";
+      }
+
+      function init() {
+        updateSize();
         hero.style.background = `url(${ASSETS.IMAGE.HERO.src})`;
         hero.style.width = `${ASSETS.IMAGE.HERO.width}px`;
         hero.style.height = `${ASSETS.IMAGE.HERO.height}px`;
@@ -1054,6 +1062,9 @@
         updateHighscore();
 
         reset();
+
+        // keep full screen on resize
+        window.addEventListener("resize", updateSize);
 
         // START GAME LOOP
         (function loop() {
